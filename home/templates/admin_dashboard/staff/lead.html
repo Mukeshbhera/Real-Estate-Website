@@ -1,0 +1,703 @@
+{% extends 'admin_dashboard/staff/base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="dashboard-main-body">
+    <div class="d-flex flex-wrap  justify-content-between gap-3 mb-24">
+        <h6 class="fw-semibold mb-0 w-80 mx-auto" style="font-family: sans-serif; ">Staff Leads</h6>
+        <ul class="d-flex align-items-center gap-2">
+            <li class="fw-medium">
+                <a href="index.html" class="d-flex align-items-center gap-1 hover-text-primary">
+
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- <div class="col-xxl-12">
+        <div class="row gy-4">
+            <div class="col-xxl-2 col-sm-2">
+                <div class="card p-3 shadow-2 radius-8 border input-form-light h-100 bg-gradient-end-1">
+                    <div class="card-body p-0">
+                        <div class="d-flex flex-wrap align-items-center justify-content-between gap-1 mb-8">
+                            <div class="d-flex align-items-center gap-2">
+                                <span
+                                    class="mb-0 w-25-px h-25-px bg-primary-600 flex-shrink-0 text-white d-flex justify-content-center align-items-center rounded-circle h6 mb-0">
+                                    <iconify-icon icon="mingcute:user-follow-fill" class="icon"></iconify-icon>
+                                </span>
+                                <div>
+                                    <span class="mb-2 fw-medium text-secondary-light text-sm">Total_Uplode_Leads</span>
+                                    <p class="fw-semibold">{{ total_uplode_leads }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-2 col-sm-2">
+                <div class="card p-3 shadow-2 radius-8 border input-form-light h-100 bg-gradient-end-1">
+                    <div class="card-body p-0">
+                        <div class="d-flex flex-wrap align-items-center justify-content-between gap-1 mb-8">
+                            <div class="d-flex align-items-center gap-2">
+                                <span
+                                    class="mb-0 w-25-px h-25-px bg-primary-600 flex-shrink-0 text-white d-flex justify-content-center align-items-center rounded-circle h6 mb-0">
+                                    <iconify-icon icon="mingcute:user-follow-fill" class="icon"></iconify-icon>
+                                </span>
+                                <div>
+                                    <span class="mb-2 fw-medium text-secondary-light text-sm">Total Leads</span>
+                                    <p class="fw-semibold">{{ total_leads }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-2 col-sm-2">
+                <div class="card p-3 shadow-2 radius-8 border input-form-light h-100 bg-gradient-end-2">
+                    <div class="card-body p-0">
+                        <div class="d-flex flex-wrap align-items-center justify-content-between gap-1 mb-8">
+                            <div class="d-flex align-items-center gap-2">
+                                <span
+                                    class="mb-0 w-25-px h-25-px bg-success-main flex-shrink-0 text-white d-flex justify-content-center align-items-center rounded-circle h6">
+                                    <iconify-icon icon="mingcute:user-follow-fill" class="icon"></iconify-icon>
+                                </span>
+                                <div>
+                                    <span class="mb-2 fw-medium text-secondary-light text-sm">Lost Leads</span>
+                                    <p class="fw-semibold">{{ lost_count }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-2 col-sm-2">
+                <div class="card p-3 shadow-2 radius-8 border input-form-light h-100 bg-gradient-end-3">
+                    <div class="card-body p-0">
+                        <div class="d-flex flex-wrap align-items-center justify-content-between gap-1 mb-8">
+                            <div class="d-flex align-items-center gap-2">
+                                <span
+                                    class="mb-0 w-25-px h-25-px bg-yellow text-white flex-shrink-0 d-flex justify-content-center align-items-center rounded-circle h6">
+                                    <iconify-icon icon="iconamoon:discount-fill" class="icon"></iconify-icon>
+                                </span>
+                                <div>
+                                    <span class="mb-2 fw-medium text-secondary-light text-sm">Customer</span>
+                                    <p class="fw-semibold">{{ customer_count }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-2 col-sm-2">
+                <div class="card p-3 shadow-2 radius-8 border input-form-light h-100 bg-gradient-end-4">
+                    <div class="card-body p-0">
+                        <div class="d-flex flex-wrap align-items-center justify-content-between gap-1 mb-8">
+                            <div class="d-flex align-items-center gap-2">
+                                <span
+                                    class="mb-0 w-25-px h-25-px bg-purple text-white flex-shrink-0 d-flex justify-content-center align-items-center rounded-circle h6">
+                                    <iconify-icon icon="mdi:message-text" class="icon"></iconify-icon>
+                                </span>
+                                <div>
+                                    <span class="mb-2 fw-medium text-secondary-light text-sm">Maybe</span>
+                                    <p class="fw-semibold">{{ total_maybe }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+
+    {% comment %} <div class="dashboard-main-body ">
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">
+            <h6 class="fw-semibold mb-0  ">Staff Leads</h6>
+            <ul class="d-flex align-items-center gap-2">
+                <li class="fw-medium">
+                </li>
+        </div> {% endcomment %}
+
+        <div class="card h-100 p-0 radius-12">
+            <div
+                class="card-header border-bottom bg-base py-16 px-24 d-flex align-items-center flex-wrap gap-3 justify-content-between">
+                Filter by
+
+                <div class="dropdown">
+
+
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        style="background-color: transparent; color: #7f8285; border: 1px solid #a9acb133; font-weight: 400; width: 180px; height: 40px; border-radius: 50px;">Assigned
+                        &nbsp;</button>
+
+<!--                                     
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    style="background-color: transparent; color: #7f8285; border: 1px solid #a9acb133; font-weight: 400; width: 180px; height: 40px; border-radius: 50px;">Assigned &nbsp;</button> -->
+
+                    <div class="dropdown-menu">
+                        {% for user in user_logs %}
+                        <li>
+                            <button class="dropdown-item" type="submit" name="new_status" value="Leads">
+
+                                <a data-toggle="modal" data-target="#ModalLoginForm{{ user.email }}"
+                                    href="{% url 'assigned' user.email %}"
+                                    class=" text-sm btn-sm px-12 py-12 radius-12 d-flex align-items-center gap-2">
+                                    {{ user.username }}
+                                </a></button>
+
+                        </li>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        style="background-color: transparent; color: #7f8285; border: 1px solid #a9acb133; font-weight: 400; width: 180px; height: 40px; border-radius: 50px;">
+                        Interested
+                    </button>
+                    <ul class="dropdown-menu">
+                        {% for user in user_logs %}
+                        <li>
+                            <button class="dropdown-item" type="submit" name="new_status" value="Leads">
+                                <a data-toggle="modal" data-target="#ModalLoginForm{{ user.email }}"
+                                    href="{% url 'team_leader_staff_interested_leads' user.id %}"
+                                    class=" text-sm btn-sm px-12 py-12 radius-12 d-flex align-items-center gap-2">
+                                    {{ user.username }}
+                                </a></button>
+                        </li>
+                        {% endfor %}
+
+                    </ul>
+                </div> 
+                {% comment %} <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        style="background-color: transparent; color: #7f8285; border: 1px solid #a9acb133; font-weight: 400; width: 180px; height: 40px; border-radius: 50px;">
+                        Customer
+                    </button>
+                    <ul class="dropdown-menu">
+                        {% for user in leads3 %}
+                        <li><a class="dropdown-item" href="#">
+                                {{ user.name }}
+                            </a></li>
+                        {% endfor %}
+
+                    </ul>
+                </div> {% endcomment %}
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        style="background-color: transparent; color: #7f8285; border: 1px solid #a9acb133; font-weight: 400; width: 180px; height: 40px; border-radius: 50px;">
+                        IT-Team
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#"></a></li>
+
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        style="background-color: transparent; color: #7f8285; border: 1px solid #a9acb133; font-weight: 400; width: 180px; height: 40px; border-radius: 50px;">
+                        Lost
+                    </button>
+                </div>
+            </div>
+            <!-- <div class="import">
+
+
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    style="background-color: transparent; color: #7f8285; border: 1px solid #a9acb133; font-weight: 400; width: 180px; height: 40px; border-radius: 50px;">
+                    Intrested
+                  </button>
+                  <ul class="dropdown-menu">
+                    {% for user in user_logs %}
+                    <li>
+                        <button class="dropdown-item" type="submit" name="new_status" value="Leads">
+                        <a data-toggle="modal" data-target="#ModalLoginForm{{ user.email }}" href="{% url 'customer_details' user.email %}"
+                           class=" text-sm btn-sm px-12 py-12 radius-12 d-flex align-items-center gap-2">
+                            {{ user.username }}
+                        </a></button>
+                    </li>
+                    {% endfor %}
+        
+                  </ul>
+                </div>
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    style="background-color: transparent; color: #7f8285; border: 1px solid #a9acb133; font-weight: 400; width: 180px; height: 40px; border-radius: 50px;">
+                    IT-Team
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#"></a></li>
+        
+                  </ul>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                      style="background-color: transparent; color: #7f8285; border: 1px solid #a9acb133; font-weight: 400; width: 180px; height: 40px; border-radius: 50px;">
+                      Lost
+                    </button>
+                    <ul class="dropdown-menu">
+                      {% for user in leads4 %}
+                      <li>
+                          <button class="dropdown-item" type="submit" name="new_status" value="Leads">
+                          <a data-toggle="modal" data-target="#ModalLoginForm{{ user.id }}" href="{% url 'customer_details' user.id %}"
+                             class=" text-sm btn-sm px-12 py-12 radius-12 d-flex align-items-center gap-2">
+                              {{ user.name }}
+                          </a></button>
+                      </li>
+                      {% endfor %}
+          
+                    </ul>
+                  </div>
+            </div>
+
+            <div
+                class="card-header border-bottom bg-base py-16 px-24 d-flex align-items-center flex-wrap gap-3 justify-content-end">
+                <div class="d-flex align-items-center flex-wrap gap-3">
+                    <form class="navbar-search">
+                        <input type="text" id="searchInput" class="bg-base h-40-px w-auto" name="search"
+                            placeholder="Search" onkeyup="searchTable()">
+                        <iconify-icon icon="ion:search-outline" class="icon"></iconify-icon>
+                    </form>
+                </div>
+                <a href="{% url 'import_leads' %}" style="margin: 1%; font-size: 13px;" class="btn btn-primary px-5">Import
+                    Lead
+                </a>
+            </div>
+            
+            </div> -->
+
+
+
+
+
+
+
+
+            <div class="cradss ">
+
+
+                <div class="card-body p-24 d-flex ">
+
+                    <div class="input-container">
+                        <input type="number" id="rowInput" min="1" placeholder="Enter Number" oninput="showInputRows()">
+                    </div>
+
+
+                    {% comment %} <a href="{% url 'bulk_from' %}" style="margin: 0.3%; "
+                        class="btn btn-primary mr-sm-2  ">Bulk
+                        Actions {% endcomment %}
+                        {% comment %} </a> {% endcomment %}
+                    <a>
+                        <form id="selected-form" action="{% url 'bulk_from' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" id="selected-user-ids" name="user_ids" value="">
+                            <button type="submit" class="btn btn-primary bulk   
+                          ">Bulk
+                                Actions</button>
+                        </form>
+
+                    </a>
+                </div>
+
+                <div class="importt w-100 ">
+
+                    <div class="d-flex align-items-center flex-wrap gap-3 ">
+                        {% comment %} <div class="input-group">
+                            <div class="form-outline" data-mdb-input-init>
+                              <input type="text" placeholder="search" name="search" id="searchInput" class="form-control" onkeyup="searchTable()"/>
+                            </div>
+                        
+                          </div> {% endcomment %}
+                          <div class="input-group">
+                            <div class="form-outline" data-mdb-input-init>
+                                <input type="text" placeholder="search" name="search" id="searchInput"
+                                    class="form-control" onkeyup="searchTable()" />
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+                    <!-- <a href="{% url 'import_leads' %}" style="margin: 1%; font-size: 13px;   
+                        margin-top: 10px;
+                      " class="btn btn-primary bulk  ">Import
+                        Lead
+                    </a> -->
+                    <form id="selected-form" action="{% url 'import_leads' %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" id="selected-user-ids" name="user_ids" value="">
+                        <button type="submit" class="btn btn-primary bulkk  
+                      ">Import Lead</button>
+                    </form>
+                </div>
+
+
+
+            </div>
+
+
+
+            
+
+            <div class="table-responsive scroll-sm">
+                <table class="table bordered-table sm-table mb-0" id="myTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                <div id="masterButton" class="select-button btn btn-primary" onclick="toggleAllRows()">
+                                </div>
+                                {% comment %} <div class="select-button btn btn-primary"></div> {% endcomment %}
+                            </th>
+                            <th scope="col" hidden>id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Call</th>
+                            <th scope="col">Whatsapp</th>
+                            <th scope="col">Send</th>
+                            <th scope="col">Status</th>
+                            <th>Change Status</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+
+
+                        {% for user in leads2 %}
+                        <tr id="{{user.id}}">
+                            <td>
+                                <div class="select-button btn btn-primary" onclick="toggleRow(this)"></div>
+                            </td>
+                            <td hidden>{{ user.id }}</td>
+                            <td>{{ user.name }}</td>
+                            <td>
+                                <a href="tel:{{ user.call }}">
+                                    <i class="fas fa-phone" style="font-size:1em;"></i></a>
+                            </td>
+                            {% comment %} <td>
+                                <a href="https://wa.me/{{ user.call }}" target="_blank">
+                                    <i class="fab fa-whatsapp menu-icon" style="font-size:2em;"></i>
+                                </a>
+                            </td> {% endcomment %}
+                            <td>
+                                <a href="https://wa.me/{{ user.call }}?text=Hello%20{{ user.name }}" target="_blank">
+                                    <i class="fab fa-whatsapp menu-icon" style="font-size:2em;"></i>
+                                </a>
+                            </td>
+                            {% comment %} <td>
+                                <i class="fas fa-paper-plane" style="font-size:1em;"></i> {{ user.send }}
+                            </td> {% endcomment %}
+                            <td>
+                                <button class="btn btn-toggle" onclick="toggleSendStatus({{ user.id }}, this)">
+                                    {% if user.send == 'True' %}
+                                    <span class="badge bg-success">Send</span>
+                                    {% else %}
+                                    <span class="badge bg-danger">Don't Send</span>
+                                    {% endif %}
+                                </button>
+                            </td>
+
+                            <td>{{user.status}}</td>
+                            <td>
+
+                                <form action="{% url 'status_update' %}" method="POST">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="leads_id" value="{{ user.id }}">
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" aria-expanded="false"
+                                            data-bs-toggle="dropdown" type="button">{{ user.status }}&nbsp;</button>
+                                        <div class="dropdown-menu">
+                                            <button class="dropdown-item" type="submit" name="new_status"
+                                                value="Leads">Leads</button>
+                                            <button class="dropdown-item" type="submit" name="new_status"
+                                                value="Intrested">Intrested
+                                            </button>
+                                            <button class="dropdown-item" type="submit" name="new_status"
+                                                value="Not Interested">Not Interested</button>
+                                            <button class="dropdown-item" type="submit" name="new_status"
+                                                value="Other Location">Other Location</button>
+                                            <button class="dropdown-item" type="submit" name="new_status"
+                                                value="Not Picked">Not Picked</button>
+                                            <button class="dropdown-item" type="submit" name="new_status"
+                                                value="Lost">Lost</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </td>
+                            <td>
+
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+{% comment %} <form id="selected-form" action="{% url 'bulk_from' %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" id="selected-user-ids" name="user_ids" value=""> {% endcomment %}
+    {% comment %} <button type="submit" class="btn btn-primary">Submit Selected IDs</button> {% endcomment %}
+    {% comment %}
+</form> {% endcomment %}
+
+
+<script>
+    let selectedUserIds = [];
+
+    function toggleRow(button) {
+        const row = button.parentNode.parentNode;
+        const userId = row.id;
+
+        if (row.classList.contains('selected')) {
+            row.classList.remove('selected');
+            button.style.backgroundColor = 'white';
+            selectedUserIds = selectedUserIds.filter(id => id !== userId);
+        } else {
+            row.classList.add('selected');
+            button.style.backgroundColor = 'black';
+            selectedUserIds.push(userId);
+        }
+
+        document.getElementById('selected-user-ids').value = selectedUserIds.join(',');
+    }
+
+    document.getElementById('selected-form').addEventListener('submit', function (event) {
+        if (selectedUserIds.length === 0) {
+            event.preventDefault();
+            alert('Please select at least one user.');
+        }
+    });
+    let a = 0;
+    function toggleAllRows() {
+        var buttons = document.querySelectorAll('.select-button');
+        var allSelected = true;
+        buttons.forEach(function (button) {
+            var row = button.parentNode.parentNode;
+            if (!row.classList.contains('selected')) {
+                allSelected = false;
+            }
+        });
+        let b = 0;
+        buttons.forEach(function (button) {
+            var row = button.parentNode.parentNode;
+            const userId = row.id;
+            b += 1;
+            if (b <= a) {
+
+                if (allSelected) {
+                    row.classList.remove('selected');
+                    button.style.backgroundColor = 'white';
+                    selectedUserIds = selectedUserIds.filter(id => id !== userId);
+                } else {
+                    row.classList.add('selected');
+                    button.style.backgroundColor = 'black';
+                    selectedUserIds.push(userId);
+                }
+                document.getElementById('selected-user-ids').value = selectedUserIds.join(',');
+            }
+        });
+        b = 0;
+    }
+    function searchTable() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those that don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            var rowShouldBeVisible = false;
+
+            // Loop through all cells of current row
+            for (j = 0; j < tr[i].cells.length; j++) {
+                td = tr[i].cells[j];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        rowShouldBeVisible = true;
+                        break; // If a match is found in this row, no need to check further
+                    }
+                }
+            }
+            if (rowShouldBeVisible) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+
+    }
+    
+    function showInputRows() {
+        const input = document.getElementById("rowInput").value;
+        const count = parseInt(input) || 'all';
+        a = count + 1;
+        showRows(count);
+    }
+
+    function showRows(count) {
+        const rows = document.querySelectorAll("#myTable tbody tr");
+        rows.forEach((row, index) => {
+            if (count === 'all' || index < count) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+    }
+</script>
+{% comment %} 
+function searchTable() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+
+    // Loop through all table rows, and hide those that don't match the search query
+    for (i = 0; i < tr.length; i++) {
+        var rowShouldBeVisible = false;
+
+        // Loop through all cells of current row
+        for (j = 0; j < tr[i].cells.length; j++) {
+            td = tr[i].cells[j];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    rowShouldBeVisible = true;
+                    break; // If a match is found in this row, no need to check further
+                }
+            }
+        }
+        if (rowShouldBeVisible) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "show";
+        }
+    }
+
+} {% endcomment %}
+
+
+
+<style>
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+
+    .table th,
+    .table td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    .select-button {
+        width: 16px;
+        height: 16px;
+        border: 1px solid black;
+        display: inline-block;
+        cursor: pointer;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+        position: relative;
+    }
+
+    .select-button::before {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 5px;
+        width: 5px;
+        height: 10px;
+        /* border: solid black; */
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+
+    .selected .select-button::before {
+        opacity: 3;
+    }
+
+    .selected {
+        background-color: #d3d3d3;
+        /* Light grey background for selected rows */
+    }
+
+    .input-container {
+        margin-bottom: 5px;
+        margin-top: 6px;
+    }
+
+    button.btn.btn-primary.bulk.px-5 {
+        margin-top: 12px;
+    }
+
+    #rowInput {
+        border: 1px solid black;
+        padding: 6px;
+        width: 140px;
+        font-size: 14px;
+        margin: 7px;
+        font-weight: bold;
+        text-transform: capitalize;
+        color: black;
+        border-radius: 10px 10px 10px 10px;
+    }
+</style>
+
+
+<script>
+    function toggleSendStatus(userId, button) {
+        var currentStatus = button.querySelector('.badge').textContent.trim() === 'Send';
+        var newSendStatus = !currentStatus;
+
+        fetch('{% url "update_send_status" %}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}'  // Include CSRF token for security
+            },
+            body: JSON.stringify({
+                id: userId,
+                send: newSendStatus
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Update button text based on the new status
+                    if (data.new_send_status) {
+                        button.innerHTML = '<span class="badge bg-success">Send</span>';
+                    } else {
+                        button.innerHTML = '<span class="badge bg-danger">Don\'t Send</span>';
+                    }
+                } else {
+                    alert('Failed to update status: ' + data.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+</script>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'admin_dashboard/staff/base.html' %}
+{% block content %}
+{% load static %}
+<br>
+<div class="d-flex align-items-center justify-content-center">
+    <form id="importForm" method="POST" action="{% url 'excel_upload' %}" enctype="multipart/form-data" class="d-flex align-items-center">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary border border-primary-600 text-md px-56 py-12 radius-8">
+            Import Excel
+        </button>
+        <div class="d-flex">
+            <input type="file" class="form-control" id="excel_file" name="excel_file" accept=".xlsx, .xls" required>
+        </div>
+    </form>
+</div>
+<br>
+<div  class="d-flex align-items-center justify-content-center">
+    <form id="exportForm" method="POST" action="{% url 'export_users' %}">
+        {% csrf_token %}
+        <button type="button" class="btn btn-primary border border-primary-600 text-md px-56 py-12 radius-8" onclick="submitExportForm()">
+            Download format
+        </button>
+    </form>
+</div>
+
+
+<script>
+    function submitExportForm() {
+        var form = document.getElementById("exportForm");
+        var checkboxes = document.getElementsByClassName("select-checkbox");
+        var selectedIds = [];
+
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked && checkboxes[i].closest('tr').style.display !== 'none') {
+                selectedIds.push(checkboxes[i].value);
+            }
+        }
+
+        if (selectedIds.length > 0) {
+            for (var i = 0; i < selectedIds.length; i++) {
+                var hiddenField = document.createElement("input");
+                hiddenField.type = "hidden";
+                hiddenField.name = "selected_ids";
+                hiddenField.value = selectedIds[i];
+                form.appendChild(hiddenField);
+            }
+        }
+
+        form.submit();
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="dashboard-main-body">
+    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">
+        <h6 class="fw-semibold mb-0">Admin Edit</h6>
+    </div>
+
+    <div class="card h-100 p-0 radius-12">
+        <div class="card-body p-24">
+            <div class="row justify-content-center">
+                <div class="col-xxl-6 col-xl-8 col-lg-10">
+                    <div class="card border">
+                        <div class="card-body">
+                            {% if messages %}
+                            {% for message in messages %}
+                            <div class="alert alert-success">
+                                {{ message }}
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                            <form method="POST" enctype="multipart/form-data" action="{% url 'editadmin' admin.id %}">
+                                {% csrf_token %}
+                                <div class="modal-body" style="text-align: left;">
+                                    <div class="row" style="margin-top: 10px;">
+                                        <div class="col"><label class="form-label">Name</label>
+                                            <input type="text" class="form-control radius-8" id="name" name="name"
+                                                placeholder="Name" style="width: 100%;" maxlength="20" required
+                                                value="{{ admin.name }}">
+                                        </div>
+                                        <div class="col"><label for="email" class="form-label">E-Mail Address</label>
+                                            <input type="email" class="form-control radius-8" id="email" name="email"
+                                                placeholder="email" style="width: 100%;" maxlength="30" required
+                                                value="{{admin.email}}">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 10px;">
+                                        <div class="col"><label class="form-label">Mobile</label>
+                                            <input type="number" class="form-control radius-8" id="mobile" name="mobile"
+                                                placeholder="number" style="width: 100%;"
+                                                oninput="if(this.value.length > 10) this.value = this.value.slice(0, 10);"
+                                                min="999999999" max="9999999999" required value="{{admin.mobile}}">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 10px;">
+                                        <div class="col"><label class="form-label">Address</label>
+                                            <input type="text" class="form-control radius-8" id="address" name="address"
+                                                placeholder="address" style="width: 100%;" maxlength="50" required
+                                                value="{{admin.address}}">
+                                        </div>
+                                        <div class="col"><label for="city" class="form-label">City</label>
+                                            <input type="text" class="form-control radius-8" id="city" name="city"
+                                                placeholder="city" style="width: 100%;" maxlength="30" required
+                                                value="{{admin.city}}">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 10px;">
+                                        <div class="col"><label for="pincode" class="form-label">Pincode</label>
+                                            <input type="number" class="form-control radius-8" id="pincode"
+                                                name="pincode" placeholder="pincode" style="width: 100%;"
+                                                oninput="if(this.value.length > 6) this.value = this.value.slice(0, 6);"
+                                                min="99999" max="999999" required value="{{admin.pincode}}">
+                                        </div>
+                                        <div class="col"><label class="form-label">State</label>
+                                            <input type="text" class="form-control radius-8" id="state" name="state"
+                                                placeholder="state" style="width: 100%;" maxlength="30" required
+                                                value="{{admin.state}}">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="d-flex align-items-center justify-content-center gap-3">
+                                        <input type="submit"
+                                            class="btn btn-primary border border-primary-600 text-md px-56 py-12 radius-8">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
